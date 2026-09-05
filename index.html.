@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+html,body{
+margin:0;
+padding:0;
+background:transparent;
+overflow:hidden;
+}
+
+
+#musicButton{
+
+position:fixed;
+
+right:20px;
+
+bottom:20px;
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+border:1px solid rgba(255,255,255,0.5);
+
+background:rgba(0,0,0,0.35);
+
+color:white;
+
+font-size:28px;
+
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<audio id="music" loop>
+
+<source src="https://h2027125863-lgtm.github.io/readymag-music1/flow.mp3"
+type="audio/mpeg">
+
+</audio>
+
+
+<button id="musicButton">
+♫
+</button>
+
+
+
+<script>
+
+let music=document.getElementById("music");
+
+let btn=document.getElementById("musicButton");
+
+
+btn.onclick=function(){
+
+if(music.paused){
+
+music.play();
+
+btn.innerHTML="Ⅱ";
+
+}
+
+else{
+
+music.pause();
+
+btn.innerHTML="♫";
+
+}
+
+}
+
+</script>
+
+
+</body>
+</html>
