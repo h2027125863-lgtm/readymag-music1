@@ -1,95 +1,201 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="UTF-8">
+
+<title>Music Player</title>
+
 
 <style>
 
 html,body{
+
 margin:0;
 padding:0;
+
+width:100%;
+height:100%;
+
 background:transparent;
+
 overflow:hidden;
+
 }
 
 
+/* 播放按钮 */
+
 #musicButton{
+
 
 position:fixed;
 
-right:20px;
 
-bottom:20px;
+right:25px;
+
+bottom:25px;
+
+
 
 width:60px;
 
 height:60px;
 
+
+
 border-radius:50%;
 
-border:1px solid rgba(255,255,255,0.5);
 
-background:rgba(0,0,0,0.35);
+
+border:1px solid rgba(255,255,255,0.6);
+
+
+
+background:rgba(0,0,0,0.45);
+
+
 
 color:white;
 
+
+
 font-size:28px;
+
+
 
 cursor:pointer;
 
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+
 }
+
+
+/* 播放状态 */
+
+.playing{
+
+
+animation:spin 3s linear infinite;
+
+
+}
+
+
+
+@keyframes spin{
+
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+
+}
+
+
 
 </style>
 
+
 </head>
+
 
 
 <body>
 
 
-<audio id="music" loop>
+<audio id="music" loop preload="auto">
 
-<source src="https://h2027125863-lgtm.github.io/readymag-music1/flow.mp3"
-type="audio/mpeg">
+<source src="flow.mp3" type="audio/mpeg">
 
 </audio>
 
 
+
 <button id="musicButton">
+
 ♫
+
 </button>
 
 
 
 <script>
 
-let music=document.getElementById("music");
 
-let btn=document.getElementById("musicButton");
+const music=document.getElementById("music");
+
+const button=document.getElementById("musicButton");
 
 
-btn.onclick=function(){
+
+button.onclick=function(){
+
+
 
 if(music.paused){
 
+
+
 music.play();
 
-btn.innerHTML="Ⅱ";
+
+
+button.innerHTML="Ⅱ";
+
+
+button.classList.add("playing");
+
+
 
 }
 
 else{
 
+
+
 music.pause();
 
-btn.innerHTML="♫";
+
+
+button.innerHTML="♫";
+
+
+button.classList.remove("playing");
+
+
 
 }
 
-}
+
+
+};
+
+
 
 </script>
 
 
+
 </body>
+
 </html>
